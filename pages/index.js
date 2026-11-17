@@ -1,11 +1,10 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import Head from "next/head";
+import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 import {
   ArrowDown,
-
   ArrowUpRight,
   Menu,
   X,
@@ -23,20 +22,20 @@ import {
   ShieldCheck,
   Pill,
   Check,
-  PawPrint
-} from 'lucide-react';
+  PawPrint,
+} from "lucide-react";
 
-import clinic from '@/data/clinic';
+import clinic from "@/data/clinic";
 
 const iconMap = {
   stethoscope: Stethoscope,
   microscope: Microscope,
   syringe: Syringe,
   hospital: Hospital,
-  'heart-pulse': HeartPulse,
+  "heart-pulse": HeartPulse,
   scan: Scan,
-  'shield-check': ShieldCheck,
-  pill: Pill
+  "shield-check": ShieldCheck,
+  pill: Pill,
 };
 
 const fadeUp = {
@@ -44,11 +43,11 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: 'easeOut' }
-  }
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
 };
 
-function Reveal({ children, className = '' }) {
+function Reveal({ children, className = "" }) {
   return (
     <motion.div
       className={className}
@@ -66,10 +65,10 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
-    ['О клинике', '#about'],
-    ['Услуги', '#services'],
-    ['Галерея', '#gallery'],
-    ['Контакты', '#contacts']
+    ["О клинике", "#about"],
+    ["Услуги", "#services"],
+    ["Галерея", "#gallery"],
+    ["Контакты", "#contacts"],
   ];
 
   return (
@@ -85,13 +84,9 @@ function Header() {
           </span>
         </a>
 
-        <nav className={`navigation ${menuOpen ? 'navigation-open' : ''}`}>
+        <nav className={`navigation ${menuOpen ? "navigation-open" : ""}`}>
           {links.map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-            >
+            <a key={href} href={href} onClick={() => setMenuOpen(false)}>
               {label}
             </a>
           ))}
@@ -100,10 +95,7 @@ function Header() {
           </a>
         </nav>
 
-        <a
-          className="header-phone"
-          href={`tel:${clinic.phones.mainLink}`}
-        >
+        <a className="header-phone" href={`tel:${clinic.phones.mainLink}`}>
           <Phone size={16} />
           <span>{clinic.phones.main}</span>
           <ArrowUpRight size={16} />
@@ -111,7 +103,7 @@ function Header() {
 
         <button
           className="menu-toggle"
-          aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
+          aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
         >
@@ -133,17 +125,19 @@ function Hero() {
           </div>
 
           <h1>
-            Здоровье питомца —
-            <span> наша общая забота.</span>
+            Здоровье питомца —<span> наша общая забота.</span>
           </h1>
 
           <p className="hero-description">
-            Ветеринарная помощь, диагностика и забота
-            о тех, кто делает нашу жизнь счастливее.
+            Ветеринарная помощь, диагностика и забота о тех, кто делает нашу
+            жизнь счастливее.
           </p>
 
           <div className="hero-actions">
-            <a href={`tel:${clinic.phones.mainLink}`} className="button button-primary">
+            <a
+              href={`tel:${clinic.phones.mainLink}`}
+              className="button button-primary"
+            >
               Записаться на приём
               <ArrowUpRight size={19} />
             </a>
@@ -182,7 +176,7 @@ function Hero() {
         <div className="hero-visual">
           <div className="hero-image">
             <Image
-              src="/images/patient-dog.jpg"
+              src="/ilay-vet-clinika/images/patient-dog.jpg"
               alt="Собака — пациент ветеринарной клиники Илай"
               fill
               priority
@@ -225,15 +219,12 @@ function About() {
 
         <Reveal className="about-text">
           <p>
-            «Илай» — ветеринарная клиника в Орловской области.
-            Здесь можно получить ветеринарную помощь,
-            пройти лабораторную диагностику и воспользоваться
-            профилактическими услугами для домашних животных.
+            «Илай» — ветеринарная клиника в Орловской области. Здесь можно
+            получить ветеринарную помощь, пройти лабораторную диагностику и
+            воспользоваться профилактическими услугами для домашних животных.
           </p>
 
-          <p>
-            Для питомцев также предусмотрен круглосуточный стационар.
-          </p>
+          <p>Для питомцев также предусмотрен круглосуточный стационар.</p>
 
           <a href="#contacts" className="text-link">
             Найти клинику
@@ -245,7 +236,7 @@ function About() {
       <div className="container about-image-wrap">
         <div className="about-image">
           <Image
-            src="/images/clinic-entrance.jpg"
+            src="/ilay-vet-clinika/images/clinic-entrance.jpg"
             alt="Вход в ветеринарную клинику Илай"
             fill
             sizes="100vw"
@@ -274,8 +265,8 @@ function Services() {
             </h2>
           </div>
           <p>
-            Основные направления ветеринарной помощи
-            и профилактики для домашних животных.
+            Основные направления ветеринарной помощи и профилактики для домашних
+            животных.
           </p>
         </Reveal>
 
@@ -318,26 +309,28 @@ function Price() {
         <Reveal>
           <span className="eyebrow eyebrow-light">03 — СТОИМОСТЬ</span>
           <h2>
-            Начните с
-            <span> первичного приёма.</span>
+            Начните с<span> первичного приёма.</span>
           </h2>
           <p>
-            Позвоните нам, чтобы уточнить подробности
-            и узнать о стоимости необходимых процедур.
+            Позвоните нам, чтобы уточнить подробности и узнать о стоимости
+            необходимых процедур.
           </p>
         </Reveal>
 
         <Reveal className="price-card">
           <span className="price-label">ПЕРВИЧНЫЙ ПРИЁМ</span>
           <div className="price-value">
-            {clinic.price.value.toLocaleString('ru-RU')} <small>₽</small>
+            {clinic.price.value.toLocaleString("ru-RU")} <small>₽</small>
           </div>
           <div className="price-line" />
           <div className="price-description">
             <Check size={18} />
             Стоимость согласно карточке клиники
           </div>
-          <a href={`tel:${clinic.phones.mainLink}`} className="button button-light">
+          <a
+            href={`tel:${clinic.phones.mainLink}`}
+            className="button button-light"
+          >
             Уточнить и записаться
             <ArrowUpRight size={19} />
           </a>
@@ -386,9 +379,7 @@ function Gallery() {
               <span> пациенты.</span>
             </h2>
           </div>
-          <p>
-            Несколько фотографий клиники и её четвероногих пациентов.
-          </p>
+          <p>Несколько фотографий клиники и её четвероногих пациентов.</p>
         </Reveal>
 
         <div className="gallery-grid">
@@ -404,7 +395,7 @@ function Gallery() {
                   width={1200}
                   height={900}
                   sizes="(max-width: 760px) 100vw, 50vw"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  style={{ width: "100%", height: "auto", display: "block" }}
                 />
               </div>
               <div className="gallery-caption">
@@ -433,7 +424,7 @@ function Contacts() {
           observer.disconnect();
         }
       },
-      { rootMargin: '200px' }
+      { rootMargin: "200px" }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -459,7 +450,11 @@ function Contacts() {
               <div>
                 <span>АДРЕС КЛИНИКИ</span>
                 <p>{clinic.address.full}</p>
-                <a href={clinic.address.mapUrl} target="_blank" rel="noreferrer">
+                <a
+                  href={clinic.address.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Построить маршрут <ArrowUpRight size={15} />
                 </a>
               </div>
@@ -542,10 +537,7 @@ function Footer() {
           </span>
         </a>
 
-        <p>
-          Забота о здоровье тех,
-          кто нам дорог.
-        </p>
+        <p>Забота о здоровье тех, кто нам дорог.</p>
 
         <a href={`tel:${clinic.phones.mainLink}`} className="footer-call">
           Связаться с нами <ArrowUpRight size={19} />
@@ -562,11 +554,11 @@ function Footer() {
 
 export default function Home() {
   useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
-    if (window.location.hash === '') {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (window.location.hash === "") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }
   }, []);
 
@@ -606,7 +598,7 @@ export default function Home() {
 export async function getStaticProps() {
   return {
     props: {
-      data: clinic
-    }
+      data: clinic,
+    },
   };
 }
